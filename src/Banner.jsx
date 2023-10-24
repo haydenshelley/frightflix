@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "./axios";
 import requests from "./requests";
+import "./Banner.css";
 
 function Banner() {
   const [movie, setMovie] = useState([]);
@@ -16,7 +17,25 @@ function Banner() {
     fetchData();
   }, []);
 
-  return <header></header>;
+  return (
+    <header
+      className="banner"
+      style={{
+        backgroundImage: `url(${"https://png.pngtree.com/thumb_back/fh260/background/20230617/pngtree-halloween-wallpapers-and-backgrounds-for-laptop-or-desktop-image_2968567.jpg"})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center center",
+      }}
+    >
+      <div className="banner_contents">
+        <h1>{movie.title}</h1>
+        <div className="banner_buttons">
+          <button className="banner_button">Play</button>
+          <button className="banner_button">My List</button>
+        </div>
+        <h1 className="banner_description">{movie?.description}</h1>
+      </div>
+    </header>
+  );
 }
 
 export default Banner;
