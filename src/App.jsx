@@ -5,7 +5,7 @@ import Banner from "./Banner";
 
 function App() {
   return (
-    <>
+    <div className="app">
       <Banner />
       <Row title="Not-So-Scary" fetchUrl={requests.fetchNotSoScary} />
       <Row title="Scary" fetchUrl={requests.fetchScary} />
@@ -14,7 +14,7 @@ function App() {
         title="Too scared to choose? Let us pick for you"
         fetchUrl={requests.fetchRandomThree}
       />
-    </>
+    </div>
   );
 }
 

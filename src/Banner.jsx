@@ -27,12 +27,13 @@ function Banner() {
       }}
     >
       <div className="banner_contents">
-        <h1>{movie.title}</h1>
+        <h1 className="banner_title">{movie.title}</h1>
         <div className="banner_buttons">
           <button className="banner_button">Play</button>
           <button className="banner_button">My List</button>
         </div>
         <h1 className="banner_description">{movie?.description}</h1>
+        <div className="banner--fadeBottom" />
       </div>
     </header>
   );
