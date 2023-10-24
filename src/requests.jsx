@@ -1,12 +1,12 @@
 const requests = {
-  fetchIndex: `http://localhost:3000/movies.json`,
-  fetchNotSoScary: `localhost:3000/movies/category/not-so-scary.json`,
-  fetchScary: `localhost:3000/movies/category/scary.json`,
-  fetchExtremelyScary: `localhost:3000/movies/category/scary.json`,
-  fetchShow: `localhost:3000/movies/:id`,
-  fetchRandomNotSoScary: `localhost:3000/movies/random/not-so-scary.json`,
-  fetchRandomScary: `localhost:3000/movies/random/scary.json`,
-  fetchRandomExtremelyScary: `localhost:3000/movies/random/extremely-scary.json`,
+  fetchIndex: `/movies.json`,
+  fetchNotSoScary: `/movies/category/not-so-scary.json`,
+  fetchScary: `/movies/category/scary.json`,
+  fetchExtremelyScary: `/movies/category/scary.json`,
+  fetchShow: `/movies/:id`,
+  fetchRandomNotSoScary: `/movies/random/not-so-scary.json`,
+  fetchRandomScary: `/movies/random/scary.json`,
+  fetchRandomExtremelyScary: `/movies/random/extremely-scary.json`,
 };
 
 export default requests;
