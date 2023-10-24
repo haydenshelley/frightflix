@@ -3,6 +3,7 @@ const requests = {
   fetchNotSoScary: `/movies/category/not-so-scary.json`,
   fetchScary: `/movies/category/scary.json`,
   fetchExtremelyScary: `/movies/category/extremely-scary.json`,
+  fetchRandomThree: `/random_three.json`,
   fetchShow: `/movies/:id`,
   fetchRandomNotSoScary: `/movies/random/not-so-scary.json`,
   fetchRandomScary: `/movies/random/scary.json`,
