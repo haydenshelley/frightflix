@@ -27,10 +27,3 @@
   justify-content: center;
   text-align: center;
 }
-
-
-.modalContainer button {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-}
