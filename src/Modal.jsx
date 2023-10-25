@@ -1,9 +1,30 @@
+import YouTube from "react-youtube";
 import "./Modal.css";
+import { useState, useEffect } from "react";
+import movieTrailer from "movie-trailer";
 
 function Modal({ movie, closeModal }) {
   const rottenTomatoesRating = movie.Ratings.find(
     (rating) => rating.Source === "Rotten Tomatoes"
   );
+  const [trailerUrl, setTrailerUrl] = useState("");
+
+  const opts = {
+    playerVars: {
+      autoplay: 0,
+    },
+  };
+
+  useEffect(() => {
+    movieTrailer(movie.Title)
+      .then((url) => {
+        const urlParams = new URLSearchParams(new URL(url).search);
+        setTrailerUrl(urlParams.get("v"));
+      })
+      .catch((error) => {
+        console.error("Error fetching trailer:", error);
+      });
+  }, [movie.Title]);
 
   return (
     <div className="modalBackground">
@@ -21,6 +42,8 @@ function Modal({ movie, closeModal }) {
           {rottenTomatoesRating && (
             <p>Rotten Tomatoes: {rottenTomatoesRating.Value}</p>
           )}
+          <h3>Trailer</h3>
+          {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
         </div>
       </div>
     </div>
