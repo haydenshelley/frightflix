@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import axios from "./axios";
 import "./Row.css";
 
-function Row({ title, fetchUrl }) {
+function Row({ title, fetchUrl, openModal }) {
   const [movies, setMovies] = useState([]);
   const rowRef = useRef(null);
 
@@ -80,6 +80,7 @@ function Row({ title, fetchUrl }) {
             className="row_poster"
             src={movie.image}
             alt={movie.title}
+            onClick={() => openModal(movie)}
           />
         ))}
       </div>
