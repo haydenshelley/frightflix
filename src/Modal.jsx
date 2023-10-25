@@ -27,9 +27,8 @@ function Modal({ movie, closeModal }) {
   }, [movie.Title]);
 
   return (
-    <div className="modalBackground">
+    <div className="modalBackground" onClick={() => closeModal()}>
       <div className="modalContainer">
-        <button onClick={() => closeModal()}>X</button>
         <div className="content">
           <h1>{movie.Title}</h1>
           <p>Released: {movie.Year}</p>
