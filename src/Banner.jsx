@@ -27,14 +27,19 @@ function Banner() {
       }}
     >
       <div className="banner_contents">
-        <h1 className="banner_title">{movie.title}</h1>
-        <div className="banner_buttons">
-          <button className="banner_button">Play</button>
-          <button className="banner_button">My List</button>
+        <div className="banner_left">
+          <h1 className="banner_title">{movie.title}</h1>
+          <h1 className="banner_description">{movie?.description}</h1>
+          <div className="banner_buttons">
+            <button className="banner_button">Info</button>
+            <button className="banner_button">My List</button>
+          </div>
         </div>
-        <h1 className="banner_description">{movie?.description}</h1>
-        <div className="banner--fadeBottom" />
+        <div className="banner_right">
+          <img id="banner-image" src={movie.image} alt={movie.title} />
+        </div>
       </div>
+      <div className="banner--fadeBottom" />
     </header>
   );
 }

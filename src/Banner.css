@@ -5,9 +5,25 @@
 }
 
 .banner_contents {
+  display: flex; 
   margin-left: 30px;
   padding-top: 140px;
   height: 190px;
+  align-items: center; 
+}
+
+.banner_left {
+  width: 35%; 
+}
+
+.banner_right {
+  width: 65%; 
+}
+
+#banner-image {
+  width: 270px;
+  height: 450px;
+  border-radius: 0.5vw;
 }
 
 .banner_title {
@@ -17,7 +33,7 @@
 }
 
 .banner_description {
-  width: 45rem;
+  width: 100%; 
   line-height: 1.3;
   padding-top: 1rem;
   font-size: 0.8rem;
@@ -48,10 +64,5 @@
 
 .banner--fadeBottom {
   height: 7.6rem;
-  background-image: linear-gradient(
-    180deg,
-    transparent,
-    rgba(37, 37, 37, 0.61),
-    #111
-  );
+  background-image: linear-gradient(180deg, transparent, rgba(37, 37, 37, 0.61), #111);
 }
