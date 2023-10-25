@@ -1,6 +1,8 @@
 .row {
   margin-left: 20px;
   color: white;
+  position: relative;
+  overflow: hidden;
 }
 
 .row_posters {
@@ -8,6 +10,8 @@
   overflow-y: hidden;
   overflow-x: scroll;
   padding: 20px;
+  padding-left: 30px;
+  position: relative;
 }
 
 .row_posters::-webkit-scrollbar {
@@ -20,8 +24,45 @@
   height: 250px;
   margin-right: 10px;
   transition: transform 450ms;
+  position: relative;
 }
 
 .row_poster:hover {
   transform: scale(1.09);
+  cursor: pointer;
+}
+
+.scroll-button {
+  position: absolute;
+  top: 50%;
+  width: 30px;
+  background: rgba(0, 0, 0, 0.7); 
+  color: white;
+  font-weight: 600; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s;
+  height: 30px;
+  border: none; 
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); 
+  border-radius: 5px;
+}
+
+.scroll-button.left {
+  left: 0;
+  border-radius: 5px;
+  transform: translateX(0%); 
+}
+
+.scroll-button.right {
+  right: 0;
+  border-radius: 5px;
+  transform: translateX(0%); 
+}
+
+.scroll-button:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
