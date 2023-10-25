@@ -39,7 +39,15 @@ function Row({ title, fetchUrl }) {
 
   return (
     <div className="row">
-      <h2>{title}</h2>
+      <h2
+        className={
+          title === "Too scared to choose? Let us pick for you"
+            ? "centered-title"
+            : ""
+        }
+      >
+        {title}
+      </h2>
       {title !== "Too scared to choose? Let us pick for you" && (
         <>
           <div
@@ -58,7 +66,14 @@ function Row({ title, fetchUrl }) {
           </div>
         </>
       )}
-      <div className="row_posters" ref={rowRef}>
+      <div
+        className={`row_posters ${
+          title === "Too scared to choose? Let us pick for you"
+            ? "centered-posters"
+            : ""
+        }`}
+        ref={rowRef}
+      >
         {movies.map((movie) => (
           <img
             key={movie.id}
