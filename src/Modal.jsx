@@ -9,17 +9,17 @@ function Modal({ movie, closeModal }) {
     <div className="modalBackground">
       <div className="modalContainer">
         <button onClick={() => closeModal()}>X</button>
-        <div className="title">
+        <div className="content">
           <h1>{movie.Title}</h1>
-          <p>{movie.Year}</p>
-          <p>{movie.Runtime}</p>
-          <p>{movie.Genre}</p>
-          <p>{movie.Director}</p>
-          <p>{movie.Writer}</p>
-          <p>{movie.Actors}</p>
-          <p>{movie.Plot}</p>
+          <p>Released: {movie.Year}</p>
+          <p>Runtime: {movie.Runtime}</p>
+          <p>Genre(s): {movie.Genre}</p>
+          <p>Director: {movie.Director}</p>
+          <p>Writer(s): {movie.Writer}</p>
+          <p>Actors: {movie.Actors}</p>
+          <p>Plot: {movie.Plot}</p>
           {rottenTomatoesRating && (
-            <p>Rotten Tomatoes Rating: {rottenTomatoesRating.Value}</p>
+            <p>Rotten Tomatoes: {rottenTomatoesRating.Value}</p>
           )}
         </div>
       </div>

@@ -11,7 +11,7 @@ function Row({ title, fetchUrl, openModal, fetchMovieDetails }) {
   const startScrollingLeft = () => {
     interval = setInterval(() => {
       if (rowRef.current) {
-        rowRef.current.scrollLeft -= 5;
+        rowRef.current.scrollLeft -= 10;
       }
     }, 50);
   };
@@ -19,7 +19,7 @@ function Row({ title, fetchUrl, openModal, fetchMovieDetails }) {
   const startScrollingRight = () => {
     interval = setInterval(() => {
       if (rowRef.current) {
-        rowRef.current.scrollLeft += 5;
+        rowRef.current.scrollLeft += 10;
       }
     }, 50);
   };
