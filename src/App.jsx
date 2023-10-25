@@ -39,7 +39,7 @@ function App() {
   return (
     <div className="app">
       <Nav />
-      <Banner />
+      <Banner openModal={openModal} />
       <Row
         title="Not-So-Scary"
         fetchUrl={requests.fetchNotSoScary}

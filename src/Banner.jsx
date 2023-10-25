@@ -3,7 +3,7 @@ import axios from "./axios";
 import requests from "./requests";
 import "./Banner.css";
 
-function Banner() {
+function Banner({ openModal }) {
   const [movie, setMovie] = useState([]);
 
   useEffect(() => {
@@ -16,6 +16,10 @@ function Banner() {
     }
     fetchData();
   }, []);
+
+  const handleInfoClick = () => {
+    openModal(movie.id);
+  };
 
   return (
     <header
@@ -31,7 +35,9 @@ function Banner() {
           <h1 className="banner_title">{movie.title}</h1>
           <h1 className="banner_description">{movie?.description}</h1>
           <div className="banner_buttons">
-            <button className="banner_button">Info</button>
+            <button className="banner_button" onClick={handleInfoClick}>
+              Info
+            </button>
             <button className="banner_button">My List</button>
           </div>
         </div>
