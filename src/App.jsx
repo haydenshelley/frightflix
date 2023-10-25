@@ -18,11 +18,6 @@ function App() {
     await fetchMovieDetails(movieId);
   };
 
-  const closeModal = () => {
-    setSelectedMovie(null);
-    setIsModalOpen(false);
-  };
-
   const fetchMovieDetails = async (movieId) => {
     if (!fetchingMovie) {
       setFetchingMovie(true);
@@ -34,6 +29,11 @@ function App() {
         setFetchingMovie(false);
       }
     }
+  };
+
+  const closeModal = () => {
+    setSelectedMovie(null);
+    setIsModalOpen(false);
   };
 
   return (

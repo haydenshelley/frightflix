@@ -30,19 +30,22 @@ function Modal({ movie, closeModal }) {
     <div className="modalBackground" onClick={() => closeModal()}>
       <div className="modalContainer">
         <div className="content">
-          <h1>{movie.Title}</h1>
-          <p>Released: {movie.Year}</p>
-          <p>Runtime: {movie.Runtime}</p>
-          <p>Genre(s): {movie.Genre}</p>
+          <h1>
+            {movie.Title}({movie.Year})
+          </h1>
+          <p>{movie.Genre}</p>
+          <p>{movie.Runtime}</p>
+          {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
+          <p>{movie.Plot}</p>
+          <h2>Cast & Crew</h2>
           <p>Director: {movie.Director}</p>
           <p>Writer(s): {movie.Writer}</p>
           <p>Actors: {movie.Actors}</p>
-          <p>Plot: {movie.Plot}</p>
+          <h2>Ratings</h2>
           {rottenTomatoesRating && (
             <p>Rotten Tomatoes: {rottenTomatoesRating.Value}</p>
           )}
-          <h3>Trailer</h3>
-          {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
+          <p>IMDb: {movie.imdbRating}</p>
         </div>
       </div>
     </div>
