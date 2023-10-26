@@ -38,7 +38,6 @@ function Banner({ openModal }) {
             <button className="banner_button" onClick={handleInfoClick}>
               Info
             </button>
-            <button className="banner_button">My List</button>
           </div>
         </div>
         <div className="banner_right">

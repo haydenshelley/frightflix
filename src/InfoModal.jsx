@@ -27,9 +27,13 @@ function Modal({ movie, closeModal }) {
       });
   }, [movie.Title]);
 
+  const handleInfoClick = (event) => {
+    event.stopPropagation();
+  };
+
   return (
     <div className="modalBackground" onClick={() => closeModal()}>
-      <div className="modalContainer">
+      <div className="modalContainer" onClick={handleInfoClick}>
         <div className="content">
           <h1>
             {movie.Title}({movie.Year})

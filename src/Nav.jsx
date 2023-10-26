@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "./axios";
 import "./Nav.css";
 
-function Nav({ openLoginModal }) {
+function Nav({ openLoginModal, jwt }) {
   const [show, handleShow] = useState(false);
 
   const scrollListener = () => {
@@ -30,16 +30,15 @@ function Nav({ openLoginModal }) {
   return (
     <div className={`nav ${show && "nav_black"}`}>
       <h1 className="logo">FrightFlix</h1>
-      <button onClick={openLoginModal} className="login">
-        Login
-      </button>
-      <button className="logout" onClick={handleLogout}>
-        Logout
-      </button>
-      {/* <img
-        className="nav_avatar"
-        src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/e70b1333850498.56ba69ac32ae3.png"
-      /> */}
+      {jwt ? (
+        <button className="session" onClick={handleLogout}>
+          Logout
+        </button>
+      ) : (
+        <button onClick={openLoginModal} className="session">
+          Login
+        </button>
+      )}
     </div>
   );
 }

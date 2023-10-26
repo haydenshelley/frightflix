@@ -49,7 +49,7 @@ function App() {
 
   return (
     <div className="app">
-      <Nav openLoginModal={openLoginModal} />
+      <Nav openLoginModal={openLoginModal} jwt={jwt} />
       <Banner openModal={openModal} />
       {jwt && (
         <Row
