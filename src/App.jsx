@@ -6,16 +6,22 @@ import Nav from "./Nav";
 import Modal from "./InfoModal";
 import { useState } from "react";
 import axios from "./axios";
+import LoginModal from "./LoginModal";
 
 function App() {
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [fetchingMovie, setFetchingMovie] = useState(false);
 
   const openModal = async (movieId) => {
     setSelectedMovie(null);
     setIsModalOpen(true);
     await fetchMovieDetails(movieId);
+  };
+
+  const openLoginModal = () => {
+    setIsLoginModalOpen(true);
   };
 
   const fetchMovieDetails = async (movieId) => {
@@ -36,9 +42,13 @@ function App() {
     setIsModalOpen(false);
   };
 
+  const closeLoginModal = () => {
+    setIsLoginModalOpen(false);
+  };
+
   return (
     <div className="app">
-      <Nav />
+      <Nav openLoginModal={openLoginModal} />
       <Banner openModal={openModal} />
       <Row
         title="Not-So-Scary"
@@ -66,6 +76,12 @@ function App() {
       />
       {isModalOpen && selectedMovie && (
         <Modal movie={selectedMovie} closeModal={closeModal} />
+      )}
+      {isLoginModalOpen && (
+        <LoginModal
+          closeLoginModal={closeLoginModal}
+          fetchLogin={requests.fetchSessions}
+        />
       )}
     </div>
   );

@@ -29,3 +29,10 @@
   width: 30px;
   object-fit: contain;
 }
+
+.login { 
+    position: fixed;
+    right: 20px;
+    width: 30px;
+    object-fit: contain;
+}

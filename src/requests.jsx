@@ -8,6 +8,8 @@ const requests = {
   fetchRandomNotSoScary: `/movies/random/not-so-scary.json`,
   fetchRandomScary: `/movies/random/scary.json`,
   fetchRandomExtremelyScary: `/movies/random/extremely-scary.json`,
+  fetchMyMovies: `/movies/liked.json`,
+  fetchSessions: `/sessions.json`,
 };
 
 export default requests;
