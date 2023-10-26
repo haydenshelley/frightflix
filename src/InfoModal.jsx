@@ -1,5 +1,5 @@
 import YouTube from "react-youtube";
-import "./Modal.css";
+import "./InfoModal.css";
 import { useState, useEffect } from "react";
 import movieTrailer from "movie-trailer";
 
@@ -12,6 +12,7 @@ function Modal({ movie, closeModal }) {
   const opts = {
     playerVars: {
       autoplay: 0,
+      referrerPolicy: "no-referrer",
     },
   };
 

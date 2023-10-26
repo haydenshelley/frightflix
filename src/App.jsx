@@ -3,7 +3,7 @@ import Row from "./Row";
 import requests from "./requests";
 import Banner from "./Banner";
 import Nav from "./Nav";
-import Modal from "./Modal";
+import Modal from "./InfoModal";
 import { useState } from "react";
 import axios from "./axios";
 
