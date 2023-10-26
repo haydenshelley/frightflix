@@ -33,6 +33,11 @@
 .login { 
     position: fixed;
     right: 20px;
-    width: 30px;
     object-fit: contain;
+}
+
+.logout {
+  position: fixed;
+  right: 100px;
+  object-fit: contain;
 }

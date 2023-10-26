@@ -9,6 +9,7 @@ import axios from "./axios";
 import LoginModal from "./LoginModal";
 
 function App() {
+  const jwt = localStorage.getItem("jwt");
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
@@ -50,6 +51,14 @@ function App() {
     <div className="app">
       <Nav openLoginModal={openLoginModal} />
       <Banner openModal={openModal} />
+      {jwt && (
+        <Row
+          title="My List"
+          fetchUrl={requests.fetchMyMovies}
+          openModal={openModal}
+          fetchMovieDetails={fetchMovieDetails}
+        />
+      )}
       <Row
         title="Not-So-Scary"
         fetchUrl={requests.fetchNotSoScary}
