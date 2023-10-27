@@ -49,6 +49,15 @@ function App() {
     setIsLoginModalOpen(false);
   };
 
+  const addMovieToMyList = async (movieId) => {
+    try {
+      await axios.post(requests.fetchMyMovies, { movie_id: movieId });
+      closeModal();
+    } catch (error) {
+      console.error("Error adding movie to your list:", error);
+    }
+  };
+
   return (
     <div className="app">
       <Nav openLoginModal={openLoginModal} jwt={jwt} />
@@ -90,6 +99,7 @@ function App() {
           movie={selectedMovie}
           movieId={selectedMovieId}
           closeModal={closeModal}
+          addMovieToMyList={addMovieToMyList}
         />
       )}
       {isLoginModalOpen && (

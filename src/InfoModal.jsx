@@ -2,8 +2,9 @@ import YouTube from "react-youtube";
 import "./InfoModal.css";
 import { useState, useEffect } from "react";
 import movieTrailer from "movie-trailer";
+import axios from "./axios";
 
-function Modal({ movie, closeModal, movieId }) {
+function Modal({ movie, closeModal, movieId, addMovieToMyList }) {
   const rottenTomatoesRating = movie.Ratings.find(
     (rating) => rating.Source === "Rotten Tomatoes"
   );
@@ -31,10 +32,6 @@ function Modal({ movie, closeModal, movieId }) {
     event.stopPropagation();
   };
 
-  const handleGetMovieId = () => {
-    console.log(movieId);
-  };
-
   return (
     <div className="modalBackground" onClick={() => closeModal()}>
       <div className="modalContainer" onClick={handleInfoClick}>
@@ -55,7 +52,9 @@ function Modal({ movie, closeModal, movieId }) {
             <p>Rotten Tomatoes: {rottenTomatoesRating.Value}</p>
           )}
           <p>IMDb: {movie.imdbRating}</p>
-          <button onClick={handleGetMovieId}>Add to my list</button>
+          <button onClick={() => addMovieToMyList(movieId)}>
+            Add to my list
+          </button>
         </div>
       </div>
     </div>
