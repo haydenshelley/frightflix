@@ -10,6 +10,7 @@ const requests = {
   fetchRandomExtremelyScary: `/movies/random/extremely-scary.json`,
   fetchMyMovies: `/movies/liked.json`,
   fetchSessions: `/sessions.json`,
+  fetchSignup: `/users.json`,
 };
 
 export default requests;

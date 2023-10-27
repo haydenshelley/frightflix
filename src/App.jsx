@@ -7,12 +7,14 @@ import Modal from "./InfoModal";
 import { useState } from "react";
 import axios from "./axios";
 import LoginModal from "./LoginModal";
+import Signup from "./Signup";
 
 function App() {
   const jwt = localStorage.getItem("jwt");
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
   const [fetchingMovie, setFetchingMovie] = useState(false);
   const [selectedMovieId, setSelectedMovieId] = useState(null);
   const [update, setUpdate] = useState(false);
@@ -55,6 +57,14 @@ function App() {
     setIsLoginModalOpen(false);
   };
 
+  const openSignupModal = () => {
+    setIsSignupModalOpen(true);
+  };
+
+  const closeSignupModal = () => {
+    setIsSignupModalOpen(false);
+  };
+
   const addMovieToMyList = async (movieId) => {
     try {
       await axios.post(requests.fetchMyMovies, { movie_id: movieId });
@@ -77,7 +87,11 @@ function App() {
 
   return (
     <div className="app">
-      <Nav openLoginModal={openLoginModal} jwt={jwt} />
+      <Nav
+        openLoginModal={openLoginModal}
+        openSignupModal={openSignupModal}
+        jwt={jwt}
+      />
       <Banner openModal={openModal} />
       <Row
         title="Too scared to choose? Let us pick for you"
@@ -128,6 +142,12 @@ function App() {
         <LoginModal
           closeLoginModal={closeLoginModal}
           fetchLogin={requests.fetchSessions}
+        />
+      )}
+      {isSignupModalOpen && (
+        <Signup
+          closeSignupModal={closeSignupModal}
+          fetchSignup={requests.fetchSignup}
         />
       )}
     </div>

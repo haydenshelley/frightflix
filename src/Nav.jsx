@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "./axios";
 import "./Nav.css";
 
-function Nav({ openLoginModal, jwt }) {
+function Nav({ openLoginModal, openSignupModal, jwt }) {
   const [show, handleShow] = useState(false);
 
   const scrollListener = () => {
@@ -39,7 +39,9 @@ function Nav({ openLoginModal, jwt }) {
           <button onClick={openLoginModal} className="session">
             Login
           </button>
-          <button className="session signup">Sign Up</button>
+          <button onClick={openSignupModal} className="session signup">
+            Sign Up
+          </button>
         </div>
       )}
     </div>
