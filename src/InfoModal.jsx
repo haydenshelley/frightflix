@@ -3,7 +3,7 @@ import "./InfoModal.css";
 import { useState, useEffect } from "react";
 import movieTrailer from "movie-trailer";
 
-function Modal({ movie, closeModal }) {
+function Modal({ movie, closeModal, movieId }) {
   const rottenTomatoesRating = movie.Ratings.find(
     (rating) => rating.Source === "Rotten Tomatoes"
   );
@@ -31,6 +31,10 @@ function Modal({ movie, closeModal }) {
     event.stopPropagation();
   };
 
+  const handleGetMovieId = () => {
+    console.log(movieId);
+  };
+
   return (
     <div className="modalBackground" onClick={() => closeModal()}>
       <div className="modalContainer" onClick={handleInfoClick}>
@@ -51,6 +55,7 @@ function Modal({ movie, closeModal }) {
             <p>Rotten Tomatoes: {rottenTomatoesRating.Value}</p>
           )}
           <p>IMDb: {movie.imdbRating}</p>
+          <button onClick={handleGetMovieId}>Add to my list</button>
         </div>
       </div>
     </div>

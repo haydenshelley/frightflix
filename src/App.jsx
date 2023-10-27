@@ -14,6 +14,7 @@ function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [fetchingMovie, setFetchingMovie] = useState(false);
+  const [selectedMovieId, setSelectedMovieId] = useState(null);
 
   const openModal = async (movieId) => {
     setSelectedMovie(null);
@@ -21,15 +22,12 @@ function App() {
     await fetchMovieDetails(movieId);
   };
 
-  const openLoginModal = () => {
-    setIsLoginModalOpen(true);
-  };
-
   const fetchMovieDetails = async (movieId) => {
     if (!fetchingMovie) {
       setFetchingMovie(true);
       try {
         const response = await axios.get(`/movies/${movieId}`);
+        setSelectedMovieId(movieId);
         setSelectedMovie(response.data);
         setFetchingMovie(false);
       } catch (error) {
@@ -41,6 +39,10 @@ function App() {
   const closeModal = () => {
     setSelectedMovie(null);
     setIsModalOpen(false);
+  };
+
+  const openLoginModal = () => {
+    setIsLoginModalOpen(true);
   };
 
   const closeLoginModal = () => {
@@ -84,7 +86,11 @@ function App() {
         fetchMovieDetails={fetchMovieDetails}
       />
       {isModalOpen && selectedMovie && (
-        <Modal movie={selectedMovie} closeModal={closeModal} />
+        <Modal
+          movie={selectedMovie}
+          movieId={selectedMovieId}
+          closeModal={closeModal}
+        />
       )}
       {isLoginModalOpen && (
         <LoginModal
