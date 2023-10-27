@@ -25,7 +25,7 @@ function Banner({ openModal }) {
     <header
       className="banner"
       style={{
-        backgroundImage: `url(${"https://png.pngtree.com/thumb_back/fh260/background/20230617/pngtree-halloween-wallpapers-and-backgrounds-for-laptop-or-desktop-image_2968567.jpg"})`,
+        backgroundImage: `url(${movie.horizontal_image})`,
         backgroundSize: "cover",
         backgroundPosition: "center center",
       }}
@@ -39,9 +39,6 @@ function Banner({ openModal }) {
               Info
             </button>
           </div>
-        </div>
-        <div className="banner_right">
-          <img id="banner-image" src={movie.image} alt={movie.title} />
         </div>
       </div>
       <div className="banner--fadeBottom" />

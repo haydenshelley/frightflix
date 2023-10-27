@@ -12,14 +12,6 @@
   align-items: center; 
 }
 
-.banner_left {
-  width: 35%; 
-}
-
-.banner_right {
-  width: 65%; 
-}
-
 #banner-image {
   width: 180px;
   height: 300px;
