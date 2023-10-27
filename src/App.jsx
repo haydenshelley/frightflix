@@ -67,6 +67,12 @@ function App() {
     <div className="app">
       <Nav openLoginModal={openLoginModal} jwt={jwt} />
       <Banner openModal={openModal} />
+      <Row
+        title="Too scared to choose? Let us pick for you"
+        fetchUrl={requests.fetchRandomThree}
+        openModal={openModal}
+        fetchMovieDetails={fetchMovieDetails}
+      />
       {jwt && (
         <Row
           title="My List"
@@ -92,12 +98,6 @@ function App() {
       <Row
         title="Extremely Scary"
         fetchUrl={requests.fetchExtremelyScary}
-        openModal={openModal}
-        fetchMovieDetails={fetchMovieDetails}
-      />
-      <Row
-        title="Too scared to choose? Let us pick for you"
-        fetchUrl={requests.fetchRandomThree}
         openModal={openModal}
         fetchMovieDetails={fetchMovieDetails}
       />
