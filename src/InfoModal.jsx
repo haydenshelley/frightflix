@@ -3,7 +3,7 @@ import "./InfoModal.css";
 import { useState, useEffect } from "react";
 import movieTrailer from "movie-trailer";
 
-function Modal({ movie, closeModal, movieId, addMovieToMyList }) {
+function Modal({ movie, closeModal, movieId, addMovieToMyList, jwt }) {
   const rottenTomatoesRating = movie.Ratings.find(
     (rating) => rating.Source === "Rotten Tomatoes"
   );
@@ -51,9 +51,11 @@ function Modal({ movie, closeModal, movieId, addMovieToMyList }) {
             <p>Rotten Tomatoes: {rottenTomatoesRating.Value}</p>
           )}
           <p>IMDb: {movie.imdbRating}</p>
-          <button onClick={() => addMovieToMyList(movieId)}>
-            Add to my list
-          </button>
+          {jwt && (
+            <button onClick={() => addMovieToMyList(movieId)}>
+              Add to my list
+            </button>
+          )}
         </div>
       </div>
     </div>

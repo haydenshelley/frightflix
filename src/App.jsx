@@ -107,6 +107,7 @@ function App() {
           movieId={selectedMovieId}
           closeModal={closeModal}
           addMovieToMyList={addMovieToMyList}
+          jwt={jwt}
         />
       )}
       {isLoginModalOpen && (
