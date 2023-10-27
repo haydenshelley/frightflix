@@ -3,7 +3,14 @@ import "./InfoModal.css";
 import { useState, useEffect } from "react";
 import movieTrailer from "movie-trailer";
 
-function Modal({ movie, closeModal, movieId, addMovieToMyList, jwt }) {
+function Modal({
+  movie,
+  closeModal,
+  movieId,
+  addMovieToMyList,
+  removeMovieFromMyList,
+  jwt,
+}) {
   const rottenTomatoesRating = movie.Ratings.find(
     (rating) => rating.Source === "Rotten Tomatoes"
   );
@@ -52,9 +59,14 @@ function Modal({ movie, closeModal, movieId, addMovieToMyList, jwt }) {
           )}
           <p>IMDb: {movie.imdbRating}</p>
           {jwt && (
-            <button onClick={() => addMovieToMyList(movieId)}>
-              Add to my list
-            </button>
+            <div>
+              <button onClick={() => addMovieToMyList(movieId)}>
+                Add to my list
+              </button>
+              <button onClick={() => removeMovieFromMyList(movieId)}>
+                Remove from my list
+              </button>
+            </div>
           )}
         </div>
       </div>

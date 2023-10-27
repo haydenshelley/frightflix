@@ -63,6 +63,16 @@ function App() {
     }
   };
 
+  const removeMovieFromMyList = async (movieId) => {
+    try {
+      await axios.delete(requests.fetchMyMovies + `?movie_id=${movieId}`);
+      closeModal();
+      setUpdate(true);
+    } catch (error) {
+      console.error("Error removing movie from your list:", error);
+    }
+  };
+
   return (
     <div className="app">
       <Nav openLoginModal={openLoginModal} jwt={jwt} />
@@ -107,6 +117,7 @@ function App() {
           movieId={selectedMovieId}
           closeModal={closeModal}
           addMovieToMyList={addMovieToMyList}
+          removeMovieFromMyList={removeMovieFromMyList}
           jwt={jwt}
         />
       )}
