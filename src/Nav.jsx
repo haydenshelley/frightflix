@@ -35,9 +35,12 @@ function Nav({ openLoginModal, jwt }) {
           Logout
         </button>
       ) : (
-        <button onClick={openLoginModal} className="session">
-          Login
-        </button>
+        <div className="session-buttons">
+          <button onClick={openLoginModal} className="session">
+            Login
+          </button>
+          <button className="session signup">Sign Up</button>
+        </div>
       )}
     </div>
   );

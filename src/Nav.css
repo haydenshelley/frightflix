@@ -23,6 +23,11 @@
   color: rgb(183, 92, 0);
 }
 
+.session-buttons {
+  display: flex;
+  align-items: center
+}
+
 .session {
   width: 80px; 
   position: fixed;
@@ -33,4 +38,8 @@
   border: none; 
   cursor: pointer; 
   font-size: 16px; 
+}
+
+.signup {
+  margin-right: 60px; 
 }
