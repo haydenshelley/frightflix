@@ -2,7 +2,7 @@ import axios from "./axios";
 import { useState } from "react";
 import "./Signup.css";
 
-function Signup({ closeLoginModal, fetchSignup }) {
+function Signup({ closeSignupModal, fetchSignup }) {
   const jwt = localStorage.getItem("jwt");
   if (jwt) {
     axios.defaults.headers.common["Authorization"] = `Bearer ${jwt}`;
@@ -32,30 +32,42 @@ function Signup({ closeLoginModal, fetchSignup }) {
   };
 
   return (
-    <div className="loginModalBackground" onClick={closeLoginModal}>
-      <div className="loginModalContainer">
-        <div className="loginContent" onClick={handleFormClick}>
-        <h1>Signup</h1>
-      <ul>
-        {errors.map((error) => (
-          <li key={error}>{error}</li>
-        ))}
-      </ul>
-      <form onSubmit={handleSubmit}>
-        <div>
-          Name: <input name="name" type="text" />
-        </div>
-        <div>
-          Email: <input name="email" type="email" />
-        </div>
-        <div>
-          Password: <input name="password" type="password" />
-        </div>
-        <div>
-          Password confirmation: <input name="password_confirmation" type="password" />
-        </div>
-        <button type="submit">Signup</button>
-      </form>
+    <div className="signupModalBackground" onClick={closeSignupModal}>
+      <div className="signupModalContainer">
+        <div className="signupContent" onClick={handleFormClick}>
+          <h1>Signup</h1>
+          <ul>
+            {errors.map((error) => (
+              <li key={error}>{error}</li>
+            ))}
+          </ul>
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label>
+                Name:
+                <input name="name" type="text" />
+              </label>
+            </div>
+            <div className="form-group">
+              <label>
+                Email:
+                <input name="email" type="email" />
+              </label>
+            </div>
+            <div className="form-group">
+              <label>
+                Password:
+                <input name="password" type="password" />
+              </label>
+            </div>
+            <div className="form-group">
+              <label>
+                Password confirmation:
+                <input name="password_confirmation" type="password" />
+              </label>
+            </div>
+            <button type="submit">Signup</button>
+          </form>
         </div>
       </div>
     </div>

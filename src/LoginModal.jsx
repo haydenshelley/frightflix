@@ -45,11 +45,17 @@ function LoginModal({ closeLoginModal, fetchLogin }) {
             ))}
           </ul>
           <form onSubmit={handleSubmit}>
-            <div>
-              Email: <input name="email" type="email" />
+            <div className="form-group">
+              <label>
+                Email:
+                <input name="email" type="email" />
+              </label>
             </div>
-            <div>
-              Password: <input name="password" type="password" />
+            <div className="form-group">
+              <label>
+                Password:
+                <input name="password" type="password" />
+              </label>
             </div>
             <button type="submit">Login</button>
           </form>
