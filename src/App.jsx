@@ -15,6 +15,10 @@ function App() {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [fetchingMovie, setFetchingMovie] = useState(false);
   const [selectedMovieId, setSelectedMovieId] = useState(null);
+  const [update, setUpdate] = useState(false);
+  const resetUpdate = () => {
+    setUpdate(false);
+  };
 
   const openModal = async (movieId) => {
     setSelectedMovie(null);
@@ -53,6 +57,7 @@ function App() {
     try {
       await axios.post(requests.fetchMyMovies, { movie_id: movieId });
       closeModal();
+      setUpdate(true);
     } catch (error) {
       console.error("Error adding movie to your list:", error);
     }
@@ -68,6 +73,8 @@ function App() {
           fetchUrl={requests.fetchMyMovies}
           openModal={openModal}
           fetchMovieDetails={fetchMovieDetails}
+          update={update}
+          resetUpdate={resetUpdate}
         />
       )}
       <Row

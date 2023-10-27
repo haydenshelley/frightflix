@@ -2,7 +2,14 @@ import { useState, useEffect, useRef } from "react";
 import axios from "./axios";
 import "./Row.css";
 
-function Row({ title, fetchUrl, openModal, fetchMovieDetails }) {
+function Row({
+  title,
+  fetchUrl,
+  openModal,
+  fetchMovieDetails,
+  update,
+  resetUpdate,
+}) {
   const [movies, setMovies] = useState([]);
   const rowRef = useRef(null);
 
@@ -36,6 +43,20 @@ function Row({ title, fetchUrl, openModal, fetchMovieDetails }) {
     }
     fetchData();
   }, [fetchUrl]);
+
+  if (update) {
+    async function fetchData() {
+      try {
+        const request = await axios.get(fetchUrl);
+        setMovies(request.data);
+        resetUpdate();
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+
+    fetchData();
+  }
 
   const handlePosterClick = async (movieId) => {
     openModal(movieId);

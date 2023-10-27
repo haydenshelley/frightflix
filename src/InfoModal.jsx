@@ -2,7 +2,6 @@ import YouTube from "react-youtube";
 import "./InfoModal.css";
 import { useState, useEffect } from "react";
 import movieTrailer from "movie-trailer";
-import axios from "./axios";
 
 function Modal({ movie, closeModal, movieId, addMovieToMyList }) {
   const rottenTomatoesRating = movie.Ratings.find(
