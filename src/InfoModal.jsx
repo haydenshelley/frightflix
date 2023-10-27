@@ -10,6 +10,7 @@ function Modal({
   addMovieToMyList,
   removeMovieFromMyList,
   jwt,
+  rowTitle,
 }) {
   const rottenTomatoesRating = movie.Ratings.find(
     (rating) => rating.Source === "Rotten Tomatoes"
@@ -60,12 +61,15 @@ function Modal({
           <p>IMDb: {movie.imdbRating}</p>
           {jwt && (
             <div>
-              <button onClick={() => addMovieToMyList(movieId)}>
-                Add to my list
-              </button>
-              <button onClick={() => removeMovieFromMyList(movieId)}>
-                Remove from my list
-              </button>
+              {rowTitle === "My List" ? (
+                <button onClick={() => removeMovieFromMyList(movieId)}>
+                  Remove from my list
+                </button>
+              ) : (
+                <button onClick={() => addMovieToMyList(movieId)}>
+                  Add to my list
+                </button>
+              )}
             </div>
           )}
         </div>

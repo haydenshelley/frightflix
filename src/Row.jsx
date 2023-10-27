@@ -59,7 +59,7 @@ function Row({
   }
 
   const handlePosterClick = async (movieId) => {
-    openModal(movieId);
+    openModal(movieId, title);
     fetchMovieDetails(movieId);
   };
 

@@ -16,14 +16,16 @@ function App() {
   const [fetchingMovie, setFetchingMovie] = useState(false);
   const [selectedMovieId, setSelectedMovieId] = useState(null);
   const [update, setUpdate] = useState(false);
+  const [rowTitle, setRowTitle] = useState("");
   const resetUpdate = () => {
     setUpdate(false);
   };
 
-  const openModal = async (movieId) => {
+  const openModal = async (movieId, title) => {
     setSelectedMovie(null);
     setIsModalOpen(true);
     await fetchMovieDetails(movieId);
+    setRowTitle(title);
   };
 
   const fetchMovieDetails = async (movieId) => {
@@ -119,6 +121,7 @@ function App() {
           addMovieToMyList={addMovieToMyList}
           removeMovieFromMyList={removeMovieFromMyList}
           jwt={jwt}
+          rowTitle={rowTitle}
         />
       )}
       {isLoginModalOpen && (
