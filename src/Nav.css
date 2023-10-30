@@ -9,6 +9,7 @@
   z-index: 1;
   transition-timing-function: ease-in;
   transition: all 0.5s;
+  align-items: center;
 }
 
 .nav_black {
@@ -16,6 +17,8 @@
 }
 
 .logo {
+  font-family: 'creepster';
+  font-size: 40px;
   width: 80px;
   position: fixed;
   left: 20px;
@@ -29,15 +32,20 @@
 }
 
 .session {
-  width: 80px; 
+  width: 80px;
   position: fixed;
-  right: 20px; 
+  right: 20px;
   object-fit: contain;
-  color: rgb(183, 92, 0); 
-  background: none; 
-  border: none; 
-  cursor: pointer; 
-  font-size: 16px; 
+  color: rgb(183, 92, 0);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 0.5s; 
+}
+
+.session:hover {
+  transform: scale(1.1); 
 }
 
 .signup {
