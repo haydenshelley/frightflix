@@ -1,6 +1,6 @@
 # FrightFlix (frontend)
 
-FrightFlix is a Netflix clone that allows users to browse a catalog of horror movies by category, sign up and log in to add movies to their list, and view movie metadata as well as trailers. This README will guide you through setting up and running the backend of the application. For the frontend, please refer to the [FrightFlix Backend README](https://github.com/haydenshelley/frightflix-api) for instructions.
+FrightFlix is a Netflix clone that allows users to browse a catalog of horror movies by category, sign up and log in to add movies to their list, and view movie metadata as well as trailers. This README will guide you through setting up and running the frontend of the application. For the backend, please refer to the [FrightFlix Backend README](https://github.com/haydenshelley/frightflix-api) for instructions.
 
 ## Table of contents
 
